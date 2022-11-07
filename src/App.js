@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Form from "./components/form";
+import Action from "./components/action";
+import {connect} from "react-redux";
+import {useState} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = (props) => {
+    const [hadGenerationsGenerated, setGenerationGenerated] = useState(false);
+    const makeAllGenerations = () => setGenerationGenerated(true)
+    return(
+        <div>
+            {!props.isFormOpen && <Action hadGenerationsGenerated={hadGenerationsGenerated} makeAllGenerations={makeAllGenerations}/>}
+            {props.isFormOpen && <Form/>}
+        </div>
+
+    )
 }
 
-export default App;
+const mapStateToProps = state => {
+    return{
+        isFormOpen: state.isFormOpen
+    }
+}
+export default connect(mapStateToProps)(App);

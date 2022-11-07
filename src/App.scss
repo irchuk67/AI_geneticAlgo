@@ -1,0 +1,34 @@
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  width: 30rem;
+
+  &__field{
+    &:not(:last-child){
+      margin-bottom: 1rem;
+    }
+    display: flex;
+    flex-direction: column;
+    & > label{
+      font-size: 1.5rem;
+    }
+  }
+  &__button{
+    align-self: start;
+
+    border: none;
+
+    background-color: lightskyblue;
+    padding: .5rem 1rem;
+    font-size: 1.3rem;
+    border-radius: .5rem;
+  }
+}
