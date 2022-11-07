@@ -19,7 +19,7 @@ class Routes extends Component{
     componentDidMount() {
         console.log(this.props.iterations < this.props.data.iterationsNum)
         if(this.props.iterations < this.props.data.iterationsNum){
-            this.interval = setInterval( this.createNewGeneration , 5000, )
+            this.interval = setInterval( this.createNewGeneration , 1000 )
         }
 
     }
