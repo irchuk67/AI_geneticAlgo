@@ -10,7 +10,7 @@ class Routes extends Component{
 
 
     createNewGeneration = () => {
-        if(this.props.iterations < this.props.data.iterationsNum){
+        if(this.props.iterations < this.props.data.iterationsNum - 1){
             this.props.newGenerationCreate(this.props.decisions, this.props.data.citiesNum, this.props.data.mutationPercent)
             this.props.incrementIterationsNumber();
         }
