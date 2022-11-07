@@ -9,8 +9,10 @@ const Action = (props) => {
         const makeDecisions = async () => await props.makeDecisions(props.cities);
         makeDecisions()
     }, [])
+
     return (
             <div>
+                {(props.decisions.length !== 0) ? <h1>Best distance: {props.decisions[0].distance}</h1> : null}
                 <svg height={window.innerHeight - 5} width={window.innerWidth - 5}>
                     <Cities/>
                     <Routes/>
@@ -26,7 +28,8 @@ const Action = (props) => {
                 cities: state.cities,
                 data: state.data,
                 decisions: state.decisions,
-                lines: state.lines
+                lines: state.lines,
+                iterations: state.iterations
             }
         )
 
