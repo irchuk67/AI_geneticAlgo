@@ -21,8 +21,8 @@ const setData = (data) => {
 const generateCities = (citiesNumber) => {
     const cities = []
     while (citiesNumber > 0) {
-        let x = (Math.random() * window.innerWidth).toFixed(2);
-        let y = (Math.random() * window.innerHeight).toFixed(2);
+        let x = (Math.random() * (window.innerWidth - 12)).toFixed(2);
+        let y = (Math.random() * (window.innerHeight - 20)).toFixed(2);
         cities.push({x: x, y: y, cityNumber: citiesNumber})
         citiesNumber--;
     }

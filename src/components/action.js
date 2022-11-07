@@ -11,7 +11,7 @@ const Action = (props) => {
     }, [])
     return (
             <div>
-                <svg height={window.innerHeight} width={window.innerWidth}>
+                <svg height={window.innerHeight - 5} width={window.innerWidth - 5}>
                     <Cities/>
                     <Routes/>
                 </svg>
