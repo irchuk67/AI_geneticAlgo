@@ -17,7 +17,6 @@ class Routes extends Component{
     }
 
     componentDidMount() {
-        console.log(this.props.iterations < this.props.data.iterationsNum)
         if(this.props.iterations < this.props.data.iterationsNum){
             this.interval = setInterval( this.createNewGeneration , 1000 )
         }
@@ -27,7 +26,7 @@ class Routes extends Component{
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.decisions !== this.props.decisions){
             if(this.props.decisions.length !== 0){
-                this.props.drawNewDecisions(this.props.decisions);
+                this.props.drawNewDecisions(this.props.decisions, this.props.iterations, this.props.data.iterationsNum);
             }
         }
         if(prevProps.routes !== this.props.routes){

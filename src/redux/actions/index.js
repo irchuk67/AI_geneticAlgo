@@ -181,7 +181,6 @@ const mutate = (cities, mutationPercent) => {
 }
 
 const newGenerationCreate = (decisions, citiesNum, mutationPercent) => {
-    console.log(decisions)
     let children = [];
     while(decisions.length > 0){
         if(decisions.length === 0){
@@ -197,26 +196,36 @@ const newGenerationCreate = (decisions, citiesNum, mutationPercent) => {
     }
 }
 
-const drawNewDecisions = (decisions) => {
+const drawNewDecisions = (decisions, currentIterNumber, iterNumber) => {
     let lines = [];
     if(decisions.length !== 0){
         const decisionsSorted = decisions.sort(sortByDistance);
         let cities = decisionsSorted[0].cities;
         let color = '';
+        let width = .5;
         for (let i = 0; i < 6; i++) {
             color += Math.floor(Math.random() * 10)
+        }
+
+        if(iterNumber - 1 === currentIterNumber){
+            color = 'FF0000FF';
+            width = 2
+            console.log('Result of counting')
         }
 
         let prevCity = [...cities].shift();
         cities.push(prevCity)
 
         lines = cities.map(city => {
+            if(iterNumber - 1 === currentIterNumber){
+                console.log(city.cityNumber)
+            }
             let line;
             if (prevCity !== {}) {
                 line = <line x1={prevCity.x}
                              y1={prevCity.y}
                              x2={city.x}
-                             y2={city.y} style={{stroke: `#${color}`}}
+                             y2={city.y} style={{stroke: `#${color}`, strokeWidth: width}}
                              key={Math.random()}
                 />
             }
